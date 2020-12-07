@@ -13,7 +13,7 @@
 
 class State {
 public:
-    Mode mode;
+    std::unique_ptr<Mode> mode;
     int curRow;
     int curCol; // position of the cursor in the StringBuffer
     int startRow; // start row on the screen
