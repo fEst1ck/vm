@@ -4,6 +4,7 @@
 
 #include "Controller.h"
 
-Action &Controller::getAction() {
+std::unique_ptr<Action> Controller::getAction() {
     return action();
 }
+

@@ -6,7 +6,8 @@
 #define VM_ACTION_H
 
 
-#include "State.h"
+//#include "State.h"
+class State;
 
 class Action {
 public:
@@ -14,6 +15,5 @@ public:
     virtual void operator()(State &s) = 0;
     virtual void undo(State &s) = 0;
 };
-
 
 #endif //VM_ACTION_H

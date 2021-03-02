@@ -8,12 +8,12 @@ void Model::addView(std::unique_ptr<View> v) {
     views.push_back(std::move(v));
 }
 
-Action &Model::getAction() {
+std::unique_ptr<Action> Model::getAction() {
     return controller->getAction();
 }
 
-void Model::updateState(Action &action) {
-    updateStateImpl(action);
+void Model::updateState(std::unique_ptr<Action> action) {
+    updateStateImpl(std::move(action));
 }
 
 void Model::updateViews() {
@@ -39,4 +39,8 @@ void Model::mainLoop() {
             break;
         }
     }
+}
+
+void Model::addController(std::unique_ptr<Controller> kbd) {
+    controller = std::move(kbd);
 }

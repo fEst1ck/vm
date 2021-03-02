@@ -8,8 +8,9 @@
 
 class View {
 public:
-    virtual void update();
-    virtual void display();
+    virtual ~View() = default;
+    virtual void update() = 0;
+    virtual void display() = 0;
 };
 
 
